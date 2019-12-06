@@ -38,7 +38,7 @@ def cityreader(cities=[]):
             # print(row)
             # print(row[0], row[3], row[4])
         if row[0] != 'city':
-            cities.append(City(city, lat, lon))
+            cities.append(City(city, float(lat), float(lon)))
     # cities[1:]
     # cityList = raw[1:]
     # cities.append(cityList)
@@ -47,10 +47,9 @@ def cityreader(cities=[]):
         
 
 cityreader(cities)
-print(cityreader())
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c.name + ", " + c.lat + ", " + c.lon)
+    print(c.name, c.lat, c.lon)
 
 
 
