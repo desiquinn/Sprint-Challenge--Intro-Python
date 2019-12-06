@@ -25,29 +25,49 @@ humans = [
 # whose name starts with 'D':
 print("Starts with D:")
 a = []
+subD = "D"
+for human in humans:
+    if subD in human.name[0:1]:
+        a.append(human.name)
+# for capDName in humans:
+#     print(capDName)
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
 b = []
+subs="e"
+for human in humans:
+    # print(len(human.name)-1)
+    if subs in human.name[len(human.name)-1]:
+        b.append(human.name)
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
 c = []
+subCG = ["C", "D", "E", "F", "G"]
+for human in humans:
+    for sub in subCG: 
+        if sub in human.name[0:1]:
+            c.append(human.name)
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
 d = []
+for human in humans:
+    d.append(human.age + 10)
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
 e = []
+for human in humans:
+    e.append(human.name + "-" + str(human.age))
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -55,6 +75,9 @@ print(e)
 # inclusive.
 print("Names and ages between 27 and 32:")
 f = []
+for human in humans:
+    if 27 <= human.age <= 32:
+        f.append((human.name, human.age))
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
@@ -62,10 +85,21 @@ print(f)
 # The "humans" list should be unmodified.
 print("All names uppercase:")
 g = []
+humans_copy = humans[:]
+# print(humans_copy)
+# print(humans)
+for human in humans_copy:
+    upperName = human.name.upper()
+    age5 = human.age + 5
+    # newHuman = upperName, age5
+    g.append(Human(upperName, age5))
 print(g)
+# print(humans)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
 h = []
+for human in humans:
+    h.append(math.sqrt(human.age))
 print(h)
